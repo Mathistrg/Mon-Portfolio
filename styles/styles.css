@@ -1,0 +1,452 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('/img/Poppins-Bold.ttf') format('ttf'),
+         url('/img/Poppins-BoldItalic.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* Utilisation de 'swap' pour afficher la police dès qu'elle est disponible */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+ 
+body {
+    margin: 0;
+    cursor: url('/img/Normal\ Select.ani'), auto; /* Curseur personnalisé pour toute la page */
+    /*scrollbar-width: none; /* Pour les navigateurs basés sur WebKit (Safari, Chrome) */
+    /*-ms-overflow-style: none; /* Pour Internet Explorer et Edge */
+    font-family: 'Poppins', sans-serif;
+}
+
+/*loading page*/
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Au-dessus de tout le reste */
+  }
+  
+  .loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 0.6s linear infinite; /* Animation de rotation */
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+/* Pour Firefox */
+/*body::-webkit-scrollbar {
+    display: none;
+}
+/*souris halo*/
+
+.cursor-halo {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    animation: rainbow-border 5s infinite; /* Animation rainbow pour la bordure */
+    border: 2px solid transparent; /* Bordure transparente pour commencer */
+    transform: translate(-50%, -50%);
+}
+
+@keyframes rainbow-border {
+    0%, 100% { border-color: #6565e2; } /* Bleu */
+    10% { border-color: #456ce1; } /* Bleu royal */
+    20% { border-color: #1656cd; } /* Bleu cornflower */
+    30% { border-color: #04b8ff; } /* Bleu clair */
+    40% { border-color: #09b3eb; } /* Bleu poudre */
+    50% { border-color: #0ed0ea; } /* Bleu poudre clair */
+    60% { border-color: #0de0e0; } /* Bleu pâle */
+    70% { border-color: #11dfdf; } /* Bleu alice */
+    80% { border-color: #60a1da; } /* Bleu alice clair */
+    90% { border-color: #12d2d2; } /* Azur */
+}
+
+/* nav bar */
+.sticky-nav {
+    list-style: none;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0000006d;
+    z-index: 1000; /* Assure que la barre reste au-dessus du contenu */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.364); /* Ombre sous la barre de navigation */
+}   
+
+#monTitre {
+    /* Styles du titre */
+    position: relative;
+    font-size: 100px; /* Taille initiale du titre */
+    transition: font-size 0.3s ease; /* Transition pour l'effet d'écrasement */
+    /* Autres styles du titre */
+    pointer-events: none; 
+}
+#logoMT{
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    margin: 0;
+    padding: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
+    opacity: 0;
+    height: 0;
+    transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+}
+
+
+ul {
+    list-style-type: none; /* Supprime les puces de la liste */
+    margin: 0;
+    padding: 8px;
+    overflow: hidden;
+    display: flex; /* Utilisation de flexbox */
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.sticky-nav li {
+    margin-left: 20px; /* Espacement entre les éléments */
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    transition: transform 0.3s ease-in-out;
+}
+
+li:first-child {
+    margin-left: 0; /* Supprime l'espacement du premier élément */
+}
+
+.sticky-nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 50px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+li a:hover {
+    background: linear-gradient(90deg, rgba(0,57,255,0.8) 0%, rgba(0,34,124,0.8) 100%);
+    border-radius: 50px;
+}
+
+.content {
+    height: 1500px; /* Exemple de contenu pour simuler le défilement */
+}
+
+
+
+/* Scroll bar 
+
+/* Largeur de la scrollbar */
+::-webkit-scrollbar {
+    width: 12px; /* Largeur de la scrollbar */
+    background-color: transparent; /* Couleur transparente pour la scrollbar */
+}
+
+/* Couleur de la poignée */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, rgba(0,57,255,0.8) 0%, rgba(0,34,124,0.8) 100%);
+    border-radius: 6px; /* Arrondi des coins de la poignée */
+}
+
+/* Couleur de fond de la scrollbar */
+::-webkit-scrollbar-track {
+    background-color: #00060c; /* Couleur transparente de fond de la scrollbar */
+}
+
+.background {
+    position: relative;
+
+}
+.superposed-image{
+    position: absolute;
+    top: 0;
+    right: 0; /* Positionne l'image sur la droite */
+    padding: 70px;
+    /* Ajuste la taille, l'opacité, etc. */
+    width: 10%; /* Exemple d'ajustement de la largeur */
+    transition: 0.2s ease-in-out;
+}
+.superposed-image:hover{
+    width: 11%;
+}
+
+
+.animate-fade-in {
+    opacity: 0; /* Masque initialement l'élément */
+    animation: fadeInAnimation 2s ease-in-out forwards; /* Animation de fade-in */
+}
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0; /* Début de l'animation avec opacité à 0 */
+    }
+    to {
+        opacity: 1; /* Fin de l'animation avec opacité à 1 */
+    }
+}
+
+.video-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+}
+
+#myVideo {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+
+/*fond d'écran */
+
+.background {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; /* Cache tout contenu débordant du conteneur */
+    background-color: #000000;
+    background-size: cover;
+    background-position: center top;
+    /* Autres styles que vous pouvez avoir */
+    user-select: none;
+}
+
+.background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Couleur noire avec une opacité de 50% */
+    /* Réglez l'opacité (dernière valeur) selon vos préférences */
+}
+
+
+
+.name {
+    color: white;
+    mix-blend-mode: lighten;
+    margin-left: 150px;
+    margin-top: 290px;
+}
+.name p {
+    margin-bottom: 5px;
+    font-size: 25px;
+}
+.name h1 {
+    margin-top: 0px;
+    font-size: 100px;
+}
+
+#scroll-up-animation {
+    opacity: 0; /* Cache le contenu avant l'animation */
+    animation: scrollUp 2s ease-out forwards; /* Nom de l'animation, durée et mode de transition */
+}
+
+@keyframes scrollUp {
+    from {
+        opacity: 0;
+        transform: translateY(100px); /* Décalage initial vers le bas */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Aucun décalage, position finale */
+    }
+}
+
+.webdev {
+    color: white;
+    mix-blend-mode: lighten;
+    margin-left: 150px;
+    margin-top: 400px;
+    position: relative;
+    display: flex;
+    user-select: none;
+}
+
+.webdev h1 {
+    position: absolute;
+    right: 100px;
+    bottom: 5px;
+    font-size: 80px;
+    background: linear-gradient(90deg, rgba(0,237,255,1) 0%, rgba(52,66,171,1) 35%, rgba(96,23,221,1) 65%, rgba(192,0,255,1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent; /* Rend le texte transparent */
+    animation: waveAnimation 5s infinite; /* Animation de vague */
+    background-size: 200% auto;
+}
+
+
+@keyframes waveAnimation {
+    0% {
+        background-position: 0% center; /* Position initiale */
+    }
+    100% {
+        background-position: 200% center; /* Position finale */
+    }
+}
+
+
+
+
+
+.description {
+    position: relative;
+    width: 100%;
+    height: 140vh;
+    overflow: hidden; /* Cache tout contenu débordant du conteneur */
+    background-color: rgba(0, 0, 0, 0.852); /* Couleur noire avec une opacité de 50% */
+    background-size: cover;
+    background-position: center top;
+    /* Autres styles que vous pouvez avoir */
+}
+
+.description img {
+    position: relative;
+    max-width: 100%; /* Image s'adaptant à la taille de son conteneur */
+    height: auto; /* Conserve le ratio hauteur/largeur */
+    display: block; /* Empêche les marges supplémentaires liées aux éléments inline */
+    margin: 0 auto; /* Centre l'image horizontalement */
+    float: right; /* Image flottante à gauche */
+    margin-top: 10px;
+    width: 150px;
+    margin-right: 150px;
+    user-select: none;
+}
+
+
+
+
+#moving-text {
+    top: 10px;
+    position: absolute;
+    transition: left 0.5s ease; /* Transition du mouvement du texte (plus lente) */
+    color: white;
+    font-family: 'Poppins',sans-serif;
+    font-size: 50px;
+    user-select: none;
+  }
+
+hr {
+    height: 2px; /* Hauteur de la ligne */
+    width: calc(100% - 40px); /* Largeur initiale réduite */
+    border: none; /* Retire la bordure */
+    background: linear-gradient(90deg, rgba(0,237,255,1) 0%, rgba(52,66,171,1) 35%, rgba(96,23,221,1) 65%, rgba(192,0,255,1) 100%);
+    transition-duration: 0.5s; /* Durée de la transition de la ligne (plus courte = plus rapide) */
+    user-select: none;
+}
+
+.moi h1 {
+    justify-content: center;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    color: white;
+    text-align: center;
+    white-space: nowrap;
+    margin: 150px;
+    transform: translateX(0);
+
+}
+
+.moi {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+.moi h1:first-child {
+    margin-top: 150px;
+}
+
+
+/* Animation d'apparition avec un délai plus long */
+.scroll-fade {
+    opacity: 0;
+    transition: opacity 1s ease; /* Animation de 1 seconde */
+  }
+  .visible {
+    opacity: 1;
+  }
+
+/* Animation de slide depuis la droite */
+.slide-right {
+    transform: translateX(100%);
+  }
+  .slide-right.visible {
+    animation: slideRight 1s forwards; /* Utilisation d'une animation pour la transition */
+  }
+  
+  /* Animation de slide depuis la gauche */
+  .slide-left {
+    transform: translateX(-100%);
+  }
+  .slide-left.visible {
+    animation: slideLeft 1s forwards; /* Utilisation d'une animation pour la transition */
+  }
+  
+  /* Définition des animations */
+  @keyframes slideRight {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideLeft {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+
+.competences {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; /* Cache tout contenu débordant du conteneur */
+    background-color: rgb(255, 255, 255); /* Couleur noire avec une opacité de 50% */
+    background-size: cover;
+    background-position: center top;
+    /* Autres styles que vous pouvez avoir */
+}

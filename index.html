@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="shortcut icon" href="/img/utilisateur.png" type="image/x-icon">
+</head>
+<body>
+    <div class="cursor-halo"></div>
+    <header>
+    <nav class="sticky-nav">
+        <ul>
+            <li id="menu"><a href="#section1" id="logoMT">MT</a></li>
+            <li id="menu"><a href="#section2">Qui suis-je</a></li>
+            <li id="menu"><a href="#">Compétences</a></li>
+            <li id="menu"><a href="#">Projets</a></li>
+            <li id="menu"><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    </header>
+    <div class="overlay" id="overlay">
+        <div class="loader"></div>
+    </div>
+    <div class="background" id="section1" id="parallax">
+        <div class="video-container">
+            <video autoplay muted loop id="myVideo">
+                <source src="/img/ink_-_67354 (Original).mp4" type="video/mp4">
+                <!-- Ajoute d'autres sources pour la compatibilité avec différents navigateurs -->
+                <!-- <source src="chemin/vers/ta/video.webm" type="video/webm"> -->
+                <!-- <source src="chemin/vers/ta/video.ogv" type="video/ogv"> -->
+                <!-- Fallback pour les navigateurs qui ne supportent pas la balise video -->
+                Votre navigateur ne supporte pas la lecture de vidéos.
+            </video>
+        </div>
+        <a href="https://webtech.institute/" target="_blank"><img src="/img/WebTech_Institute-logotype-2019.webp" alt="" class="superposed-image" id="fade-in"></a>
+        <div class="name" id="scroll-up-animation">
+            <p>Bonjour je m'appelle</p>
+            <h1 id="monTitre">Mathis Truong</h1>
+        </div>
+
+        <div class="webdev" id="scroll-up-animation">
+            <H1>Web Developper</H1>
+        </div>
+    </div>
+
+    <div class="description" id="section2">
+        <div id="moving-text">
+            <p>Qui suis-je ?<hr></p>
+        </div>
+
+        <img src="/img/Onepiece.gif" alt="" srcset="">
+        
+        <div class="moi">
+            <h1 class="scroll-fade slide-right"><hr style="height: 10px; width: 150px;">Etudiant en <span id="yearNumber"></span> année à Webtech Institute <hr style="height: 10px; width: 150px;"></h1>
+            <h1 class="scroll-fade slide-left">
+                <hr style="height: 10px; width: 150px;"><div id="age"></div>
+                <div id="countdown"></div><hr style="height: 10px; width: 150px;">
+            </h1>
+            <h1 class="scroll-fade slide-right"><hr style="height: 10px; width: 150px;">Je suis en Web Dev <hr style="height: 10px; width: 150px;"></h1>
+            <h1 class="scroll-fade slide-left"><hr style="height: 10px; width: 150px;">J'ai eu mon Baccalauréat S <hr style="height: 10px; width: 150px;"></h1>
+        </div>
+    </div>
+
+
+    <div class="competences">
+        
+    </div>
+
+
+      <script src="/js/script.js"></script>
+</body>
+</html>
